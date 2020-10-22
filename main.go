@@ -1,8 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/gorilla/mux"
 )
@@ -16,5 +18,5 @@ func main() {
 	// Routes consist of a path and a handler function.
 	r.HandleFunc("/", YourHandler)
 	// Bind to a port and pass our router in
-	log.Fatal(http.ListenAndServe(":8080", r))
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", os.Getenv("PORT")), r))
 }
