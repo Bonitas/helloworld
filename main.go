@@ -17,6 +17,12 @@ func main() {
 	r := mux.NewRouter()
 	// Routes consist of a path and a handler function.
 	r.HandleFunc("/", YourHandler)
+
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
 	// Bind to a port and pass our router in
-	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", os.Getenv("PORT")), r))
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), r))
 }
