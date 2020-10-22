@@ -23,6 +23,9 @@ func main() {
 		port = "8080"
 	}
 
+	var passwort = "$p4ssw04t123"
+	fmt.Println(passwort)
+
 	// Bind to a port and pass our router in
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), r))
 }
